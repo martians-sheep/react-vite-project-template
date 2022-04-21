@@ -1,0 +1,88 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.eslint.json"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "jsx-a11y",
+    "prefer-arrow",
+    "react",
+    "react-hooks"
+  ],
+  "rules": {
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    // function関数よりもアロー優先
+    "prefer-arrow/prefer-arrow-functions": [
+      "error",
+      {
+        "disallowPrototype": true,
+        "singleReturnOnly": false,
+        "classPropertiesAllowed": false
+      }
+    ],
+    "func-names": "off", // 無名関数許可
+    // TODO:アロー関数がfunction関数に変換されてしまう為、追加
+    "react/function-component-definition": "off",
+    // storybook関連のファイルのimport許可に必要
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true, // devDependenciesのimportを許可
+        "optionalDependencies": false
+      }
+    ],
+    "react/jsx-props-no-spreading": [
+      // TODO
+      "error",
+      {
+        "html": "enforce",
+        "custom": "enforce",
+        "explicitSpread": "ignore"
+      }
+    ],
+    // 関数戻り値無し許容
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    // typeのundefined許容
+    "react/require-default-props": "off",
+    // 文字列強要
+    "@typescript-eslint/restrict-template-expressions": "off"
+  }
+}
