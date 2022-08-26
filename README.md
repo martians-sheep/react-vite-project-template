@@ -7,3 +7,6 @@ Vite を利用した React プロジェクトのテンプレートです。
 - TailwindCSS
 - ESLint
 - Prettier
+
+# ToDo
+- ViteのVersionが3系になったので変更する
